@@ -67,10 +67,14 @@ int main() {
         northSouthLight.printState();
         northSouthLight.changeState();
 
-        // Change the east-west traffic light
+        // Change the east-west traffic light after the north-south light has changed
         cout << "East-West light is ";
         eastWestLight.printState();
-        eastWestLight.changeState();
+
+        // Check if the north-south light is currently red
+        if (northSouthLight.getState() == RED) {
+            eastWestLight.changeState();
+        }
 
         // Wait for 10 seconds before changing the traffic lights again
         cout << "Waiting 10 seconds..." << endl;
